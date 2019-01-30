@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pST-H5-A2d">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="666"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oC8-Y5-V71">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
@@ -42,8 +42,15 @@
                                     <constraint firstItem="nZw-1T-Y6T" firstAttribute="centerY" secondItem="oC8-Y5-V71" secondAttribute="centerY" id="v39-0S-mxe"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYD-3b-yQ5">
+                                <rect key="frame" x="0.0" y="666" width="375" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="nOV-YN-atP"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Na-Fj-eQ4">
-                                <rect key="frame" x="309" y="597" width="50" height="50"/>
+                                <rect key="frame" x="309" y="596" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="D49-1b-87P"/>
                                     <constraint firstAttribute="width" constant="50" id="QOa-LM-FfU"/>
@@ -53,10 +60,6 @@
                                     <action selector="centerMapBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MXm-T4-bYI"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYD-3b-yQ5">
-                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -64,20 +67,21 @@
                             <constraint firstItem="pST-H5-A2d" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="DEp-zQ-9I3"/>
                             <constraint firstItem="oC8-Y5-V71" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DRp-aq-e8d"/>
                             <constraint firstItem="oC8-Y5-V71" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="GTf-mt-ZnV"/>
+                            <constraint firstItem="pYD-3b-yQ5" firstAttribute="top" secondItem="9Na-Fj-eQ4" secondAttribute="bottom" constant="20" id="J0w-KP-mwC"/>
                             <constraint firstItem="oC8-Y5-V71" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MhJ-h9-fCt"/>
                             <constraint firstItem="pYD-3b-yQ5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NJA-Ik-PR1"/>
                             <constraint firstItem="pYD-3b-yQ5" firstAttribute="top" secondItem="pST-H5-A2d" secondAttribute="bottom" id="Oba-31-q05"/>
-                            <constraint firstItem="pYD-3b-yQ5" firstAttribute="bottom" secondItem="pST-H5-A2d" secondAttribute="bottom" id="QL4-ch-a7n"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pYD-3b-yQ5" secondAttribute="bottom" id="cLW-3k-0aC"/>
                             <constraint firstItem="pST-H5-A2d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="e2y-Op-kAd"/>
                             <constraint firstItem="pYD-3b-yQ5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hNB-f0-4CG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9Na-Fj-eQ4" secondAttribute="bottom" constant="20" id="oPD-Gd-2cS"/>
                             <constraint firstItem="pST-H5-A2d" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="oeh-cF-Dwf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="pST-H5-A2d" id="MYb-l6-qKE"/>
+                        <outlet property="pullUpView" destination="pYD-3b-yQ5" id="dO9-Cq-xU6"/>
+                        <outlet property="pullUpViewHeightContraint" destination="nOV-YN-atP" id="5YG-xK-gOq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
