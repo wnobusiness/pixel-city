@@ -48,6 +48,8 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         collectionView?.dataSource = self
         collectionView?.backgroundColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
         
+        registerForPreviewing(with: self, sourceView: collectionView!)
+        
         pullUpView.addSubview(collectionView!)
     }
     
@@ -261,5 +263,24 @@ extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource {
         popVC.initData(forImage: imageArray[indexPath.row])
         present(popVC, animated: true, completion: nil)
     }
+}
+
+extension MapVC: UIViewControllerPreviewingDelegate {
+    //Adding 3D touch
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = collectionView?.indexPathForItem(at: location), let cell = collectionView?.cellForItem(at: indexPath) else { return nil }
+        guard let popVC = storyboard?.instantiateViewController(withIdentifier: "PopVC") as? PopVC else { return nil }
+        popVC.initData(forImage: imageArray[indexPath.row])
+        
+        previewingContext.sourceRect = cell.contentView.frame
+        
+        return popVC
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
+    }
+    
+    
 }
 
